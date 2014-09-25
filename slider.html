@@ -1,0 +1,35 @@
+<!doctype html>
+<html lang="en">
+   <head>
+      <meta charset="utf-8">
+      <title>Sliiiiiiide</title>
+      <link href="scripts/jquery-ui.css" rel="stylesheet">
+      <script src="scripts/jquery.js"></script>
+      <script src="scripts/jquery-ui.js"></script>
+      <script>
+         $(function() {
+            $( "#slider1" ).slider({
+               value:0,
+               slide: function( event, ui ) {
+                  $( "#minval" ).val( ui.value/100 );
+                  $( "#imgopacity" ).css( 'opacity', ui.value/100 );
+               }  
+            });
+            $( "#minval" ).val( $( "#slider1" ).slider( "value" ) );  
+         });
+      </script>
+   </head>
+   <body style="margin:0px;">
+
+      <div>
+        <img src="img/test1.png" alt="" style="position:relative;"/>
+        <img src="img/test2.png" alt="" id="imgopacity" style="opacity:0; position: absolute; top: 0; left: 0;"  />
+      </div>
+
+      <div id="slider1" style="width:350px; clear:both;"></div>
+        <p>
+          <input type="text" id="minval">
+        </p>
+
+   </body>
+</html>
